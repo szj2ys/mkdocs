@@ -1,0 +1,129 @@
+site_name: MkDocs
+site_url: https://www.mkdocs.org/
+site_description: Project documentation with Markdown.
+site_author: MkDocs Team
+
+repo_url: https://github.com/mkdocs/mkdocs/
+edit_uri: ""
+
+# Configuration
+theme:
+  name: 'material'
+#  custom_dir: !ENV [THEME_DIR, "material"]
+
+  # Static files
+  static_templates:
+    - 404.html
+
+  # Don't include MkDocs' JavaScript
+  include_search_page: false
+  search_index_only: true
+
+  # Default values, taken from mkdocs_theme.yml
+  language: en
+  features:
+    - content.tabs.link
+    # - navigation.instant
+    - navigation.sections
+    - navigation.tabs
+    - navigation.tracking
+    - search.highlight
+    - search.share
+    - search.suggest
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+    - scheme: slate
+      primary: red
+      accent: red
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
+  font:
+    text: Roboto
+    code: Roboto Mono
+  favicon: assets/favicon.png
+  icon:
+    logo: logo
+
+nav:
+    - Home: index.md
+    - Getting Started: getting-started.md
+    - User Guide:
+        - Overview: user-guide/index.md
+        - Installation: user-guide/installation.md
+        - Writing Your Docs: user-guide/writing-your-docs.md
+        - Choosing Your Theme: user-guide/choosing-your-theme.md
+        - Customizing Your Theme: user-guide/customizing-your-theme.md
+        - Localizing Your Theme: user-guide/localizing-your-theme.md
+        - Configuration: user-guide/configuration.md
+        - Deploying Your Docs: user-guide/deploying-your-docs.md
+    - Developer Guide:
+        - Overview: dev-guide/index.md
+        - Themes: dev-guide/themes.md
+        - Translations: dev-guide/translations.md
+        - Plugins: dev-guide/plugins.md
+    - About:
+        - Release Notes: about/release-notes.md
+        - Contributing: about/contributing.md
+        - License: about/license.md
+
+#extra_css:
+#    - css/extra.css
+
+# Extensions
+markdown_extensions:
+  - admonition
+  - codehilite
+  - abbr
+  - attr_list
+  - def_list
+  - footnotes
+  - meta
+  - md_in_html
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      repo_url_shorthand: true
+      user: squidfunk
+      repo: mkdocs-material
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid-experimental
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+copyright: Copyright &copy; 2014 <a href="https://twitter.com/_tomchristie">Tom Christie</a>, Maintained by the <a href="/about/release-notes/#maintenance-team">MkDocs Team</a>.
+
+plugins:
+    - search
+    - minify:
+        minify_html: true
+    - redirects:
+        redirect_maps:
+            user-guide/plugins.md: dev-guide/plugins.md
+            user-guide/custom-themes.md: dev-guide/themes.md
+            user-guide/styling-your-docs.md: user-guide/choosing-your-theme.md
